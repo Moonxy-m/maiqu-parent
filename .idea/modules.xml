@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/maiqu-common-parent/common-interface/common-interface.iml" filepath="$PROJECT_DIR$/maiqu-common-parent/common-interface/common-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-common-parent/common-service/common-service.iml" filepath="$PROJECT_DIR$/maiqu-common-parent/common-service/common-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-basic-parent/maiqu-basic-generator/maiqu-basic-generator.iml" filepath="$PROJECT_DIR$/maiqu-basic-parent/maiqu-basic-generator/maiqu-basic-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-basic-parent/maiqu-basic-parent.iml" filepath="$PROJECT_DIR$/maiqu-basic-parent/maiqu-basic-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-basic-parent/maiqu-basic-util/maiqu-basic-util.iml" filepath="$PROJECT_DIR$/maiqu-basic-parent/maiqu-basic-util/maiqu-basic-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-common-parent/maiqu-common-parent.iml" filepath="$PROJECT_DIR$/maiqu-common-parent/maiqu-common-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-config-server/maiqu-config-server.iml" filepath="$PROJECT_DIR$/maiqu-config-server/maiqu-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-eureka/maiqu-eureka.iml" filepath="$PROJECT_DIR$/maiqu-eureka/maiqu-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-parent.iml" filepath="$PROJECT_DIR$/maiqu-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-plat-parent/maiqu-plat-interface/maiqu-plat-interface.iml" filepath="$PROJECT_DIR$/maiqu-plat-parent/maiqu-plat-interface/maiqu-plat-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-plat-parent/maiqu-plat-parent.iml" filepath="$PROJECT_DIR$/maiqu-plat-parent/maiqu-plat-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-plat-parent/maiqu-plat-service/maiqu-plat-service.iml" filepath="$PROJECT_DIR$/maiqu-plat-parent/maiqu-plat-service/maiqu-plat-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-product-parent/maiqu-product-interface/maiqu-product-interface.iml" filepath="$PROJECT_DIR$/maiqu-product-parent/maiqu-product-interface/maiqu-product-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-product-parent/maiqu-product-parent.iml" filepath="$PROJECT_DIR$/maiqu-product-parent/maiqu-product-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-product-parent/maiqu-product-service/maiqu-product-service.iml" filepath="$PROJECT_DIR$/maiqu-product-parent/maiqu-product-service/maiqu-product-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maiqu-zuul/maiqu-zuul.iml" filepath="$PROJECT_DIR$/maiqu-zuul/maiqu-zuul.iml" />
+    </modules>
+  </component>
+</project>

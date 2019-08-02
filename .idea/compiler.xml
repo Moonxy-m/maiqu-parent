@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="common-interface" />
+        <module name="common-service" />
+        <module name="maiqu-basic-generator" />
+        <module name="maiqu-basic-util" />
+        <module name="maiqu-config-server" />
+        <module name="maiqu-eureka" />
+        <module name="maiqu-plat-interface" />
+        <module name="maiqu-plat-service" />
+        <module name="maiqu-product-interface" />
+        <module name="maiqu-product-service" />
+        <module name="maiqu-zuul" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common-interface" target="8" />
+      <module name="common-service" target="8" />
+      <module name="maiqu-basic-generator" target="8" />
+      <module name="maiqu-basic-parent" target="8" />
+      <module name="maiqu-basic-util" target="8" />
+      <module name="maiqu-common-parent" target="8" />
+      <module name="maiqu-config-server" target="8" />
+      <module name="maiqu-eureka" target="8" />
+      <module name="maiqu-parent" target="8" />
+      <module name="maiqu-plat-interface" target="8" />
+      <module name="maiqu-plat-parent" target="8" />
+      <module name="maiqu-plat-service" target="8" />
+      <module name="maiqu-product-interface" target="8" />
+      <module name="maiqu-product-parent" target="8" />
+      <module name="maiqu-product-service" target="8" />
+      <module name="maiqu-zuul" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
