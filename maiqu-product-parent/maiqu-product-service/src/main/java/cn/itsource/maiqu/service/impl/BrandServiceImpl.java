@@ -14,12 +14,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * <p>
  * 品牌信息 服务实现类
- * </p>
- *
- * @author solargen
- * @since 2019-07-30
  */
 @Service
 public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements IBrandService{

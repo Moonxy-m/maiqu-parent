@@ -3,9 +3,10 @@ package cn.itsource.maiqu.controller;
 
 import cn.itsource.basic.util.AjaxResult;
 import cn.itsource.basic.util.PageList;
-import cn.itsource.maiqu.domain.Product;
-import cn.itsource.maiqu.query.ProductQuery;
-import cn.itsource.maiqu.service.IProductService;
+
+import cn.itsource.maiqu.domain.ProductExt;
+import cn.itsource.maiqu.query.ProductExtQuery;
+import cn.itsource.maiqu.service.IProductExtService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,21 +15,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
-public class ProductController {
+@RequestMapping("/productExt")
+public class ProductExtController {
     @Autowired
-    public IProductService productService;
+    public IProductExtService productExtService;
 
     /**
-    * 保存和修改
+    * 保存和修改公用的
     */
     @RequestMapping(value="/add",method= RequestMethod.POST)
-    public AjaxResult save(@RequestBody Product product){
+    public AjaxResult save(@RequestBody ProductExt productExt){
         try {
-            if(product.getId()!=null){
-                productService.updateById(product);
+            if(productExt.getId()!=null){
+                productExtService.updateById(productExt);
             }else{
-                productService.save(product);
+                productExtService.save(productExt);
             }
             return AjaxResult.me();
         } catch (Exception e) {
@@ -43,7 +44,7 @@ public class ProductController {
     @RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
     public AjaxResult delete(@PathVariable("id") Integer id){
         try {
-            productService.removeById(id);
+            productExtService.removeById(id);
             return AjaxResult.me();
         } catch (Exception e) {
         e.printStackTrace();
@@ -53,9 +54,9 @@ public class ProductController {
 
     //获取用户
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
-    public Product get(@RequestParam(value="id",required=true) Long id)
+    public ProductExt get(@RequestParam(value="id",required=true) Long id)
     {
-        return productService.getById(id);
+        return productExtService.getById(id);
     }
 
 
@@ -63,9 +64,9 @@ public class ProductController {
     * 查看所有的员工信息
     */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public List<Product> list(){
+    public List<ProductExt> list(){
 
-        return productService.list(null);
+        return productExtService.list(null);
     }
 
 
@@ -73,8 +74,9 @@ public class ProductController {
     * 分页查询数据
     */
     @RequestMapping(value = "/json",method = RequestMethod.POST)
-    public PageList<Product> json(@RequestBody ProductQuery query)
+    public PageList<ProductExt> json(@RequestBody ProductExtQuery query)
     {
-        return productService.queryPage(query);
+        IPage<ProductExt> page = productExtService.page(new Page<ProductExt>(query.getPageNum(),query.getPageSize()));
+        return new PageList<>(page.getTotal(),page.getRecords());
     }
 }

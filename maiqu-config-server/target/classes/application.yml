@@ -13,6 +13,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Moonxy-m/maiqu-parent.git
+          uri: https://github.com/Moonxy-m/maiqu-config-parent.git
           username: moonxy-m
           password: moon1229..

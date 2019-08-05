@@ -3,9 +3,10 @@ package cn.itsource.maiqu.controller;
 
 import cn.itsource.basic.util.AjaxResult;
 import cn.itsource.basic.util.PageList;
-import cn.itsource.maiqu.domain.Product;
-import cn.itsource.maiqu.query.ProductQuery;
-import cn.itsource.maiqu.service.IProductService;
+import cn.itsource.maiqu.domain.Specification;
+import cn.itsource.maiqu.query.SpecificationQuery;
+import cn.itsource.maiqu.service.ISpecificationService;
+
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,21 +15,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
-public class ProductController {
+@RequestMapping("/specification")
+public class SpecificationController {
     @Autowired
-    public IProductService productService;
+    public ISpecificationService specificationService;
 
     /**
-    * 保存和修改
+    * 保存和修改公用的
     */
     @RequestMapping(value="/add",method= RequestMethod.POST)
-    public AjaxResult save(@RequestBody Product product){
+    public AjaxResult save(@RequestBody Specification specification){
         try {
-            if(product.getId()!=null){
-                productService.updateById(product);
+            if(specification.getId()!=null){
+                specificationService.updateById(specification);
             }else{
-                productService.save(product);
+                specificationService.save(specification);
             }
             return AjaxResult.me();
         } catch (Exception e) {
@@ -43,7 +44,7 @@ public class ProductController {
     @RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
     public AjaxResult delete(@PathVariable("id") Integer id){
         try {
-            productService.removeById(id);
+            specificationService.removeById(id);
             return AjaxResult.me();
         } catch (Exception e) {
         e.printStackTrace();
@@ -53,9 +54,9 @@ public class ProductController {
 
     //获取用户
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
-    public Product get(@RequestParam(value="id",required=true) Long id)
+    public Specification get(@RequestParam(value="id",required=true) Long id)
     {
-        return productService.getById(id);
+        return specificationService.getById(id);
     }
 
 
@@ -63,9 +64,9 @@ public class ProductController {
     * 查看所有的员工信息
     */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public List<Product> list(){
+    public List<Specification> list(){
 
-        return productService.list(null);
+        return specificationService.list(null);
     }
 
 
@@ -73,8 +74,9 @@ public class ProductController {
     * 分页查询数据
     */
     @RequestMapping(value = "/json",method = RequestMethod.POST)
-    public PageList<Product> json(@RequestBody ProductQuery query)
+    public PageList<Specification> json(@RequestBody SpecificationQuery query)
     {
-        return productService.queryPage(query);
+        IPage<Specification> page = specificationService.page(new Page<Specification>(query.getPageNum(),query.getPageSize()));
+        return new PageList<>(page.getTotal(),page.getRecords());
     }
 }

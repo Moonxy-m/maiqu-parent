@@ -79,7 +79,7 @@ public class ProductTypeController {
         return new PageList<>(page.getTotal(),page.getRecords());
     }
 
-    /**\
+    /**
      * 生成主页面
      */
     @GetMapping("/genHomePage")

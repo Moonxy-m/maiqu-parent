@@ -47,13 +47,15 @@ public class ProductTypeServiceImpl extends ServiceImpl<ProductTypeMapper, Produ
         return productTypes;
     }
 
+
     @Override
     public void genHomePage() {
 
-        //第一步：生成product type 的html页面
-        HashMap<String, Object> map = new HashMap<>();
+        //第一步：生成product.type.mv.html页面
+        Map<String, Object> map = new HashMap<>();
         //获取VM
         String templatePath = "E:\\作业\\李昌林\\maiqu-parent\\maiqu-product-parent\\maiqu-product-service\\src\\main\\resources\\template\\product.type.vm";
+        //存放路径
         String targetPath = "E:\\作业\\李昌林\\maiqu-parent\\maiqu-product-parent\\maiqu-product-service\\src\\main\\resources\\template\\product.type.vm.html";
         List<ProductType> productTypes = loadTypeTree();
         map.put("model",productTypes);
@@ -64,7 +66,7 @@ public class ProductTypeServiceImpl extends ServiceImpl<ProductTypeMapper, Produ
         //第二步 ： 生成home.html
         map = new HashMap<>();
         templatePath = "E:\\作业\\李昌林\\maiqu-parent\\maiqu-product-parent\\maiqu-product-service\\src\\main\\resources\\template\\home.vm";
-        templatePath ="E:\\作业\\李昌林\\maiqu-web-parent\\maiqu-web-home\\home.html";
+        targetPath ="E:\\作业\\李昌林\\maiqu-web-parent\\maiqu-web-home\\home.html";
         Map<String,String> model = new HashMap<>();
         model.put("staticRoot","E:\\作业\\李昌林\\maiqu-parent\\maiqu-product-parent\\maiqu-product-service\\src\\main\\resources\\");
         map.put("model",model);
@@ -73,9 +75,7 @@ public class ProductTypeServiceImpl extends ServiceImpl<ProductTypeMapper, Produ
         staticPageClient.genStaticPage(map);
     }
 
-    /**
-     *
-     */
+
     /**
      * 循环方式
      * @return
@@ -95,7 +95,16 @@ public class ProductTypeServiceImpl extends ServiceImpl<ProductTypeMapper, Produ
                 list.add(productType);
             }else{
                 ProductType parent = map.get(productType.getPid());
-                parent.getChildren().add(productType);
+                List<ProductType> children = parent.getChildren();
+                //判断最后一级是否为空
+                if(children==null){
+                    //如果为空就新建一个集合继续放下一级
+                    children = new ArrayList<>();
+                }
+                //不为空就把值放进去
+                children.add(productType);
+                //放入map
+                parent.setChildren(children);
             }
         }
         return list;
